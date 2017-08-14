@@ -92,7 +92,10 @@ def run_case(sheet, runner, config_file=''):
             test_suite = get_test_suite(index)
             runner.run(test_suite)
 
-            sheet1.put_cell(index, 7, 1, test_data.result, 0)
+            sheet1_w.write(index, 7, test_data.result)
+            excel_w.save('D:\\test\\testcase.xls')
+
+            # sheet1.put_cell(index, 7, 1, test_data.result, 0)
 
             # report_case_total += 1
 
