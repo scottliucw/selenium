@@ -1,0 +1,63 @@
+<html>
+<head>
+<title>wzry.py</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.ln { color: #606366; font-weight: normal; font-style: normal; }
+.s0 { color: rgb(128,128,128); }
+.s1 { color: rgb(169,183,198); }
+.s2 { color: rgb(204,120,50); font-weight: bold; }
+.s3 { color: rgb(104,151,187); }
+.s4 { color: rgb(204,120,50); }
+.s5 { color: rgb(0,128,128); }
+</style>
+</head>
+<BODY BGCOLOR="#2b2b2b">
+<TABLE CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<TR><TD><CENTER>
+<FONT FACE="Arial, Helvetica" COLOR="#000000">
+wzry.py</FONT>
+</center></TD></TR></TABLE>
+<pre>
+<a name="l1"><span class="ln">1    </span></a><span class="s0">#!/usr/bin/env python</span><span class="s1"> 
+<a name="l2"><span class="ln">2    </span></a></span><span class="s0"># encoding: utf-8</span><span class="s1"> 
+<a name="l3"><span class="ln">3    </span></a> 
+<a name="l4"><span class="ln">4    </span></a></span><span class="s2">import </span><span class="s1">HTMLTestRunner 
+<a name="l5"><span class="ln">5    </span></a></span><span class="s2">import </span><span class="s1">time 
+<a name="l6"><span class="ln">6    </span></a></span><span class="s2">import </span><span class="s1">unittest 
+<a name="l7"><span class="ln">7    </span></a></span><span class="s2">import </span><span class="s1">myclass 
+<a name="l8"><span class="ln">8    </span></a> 
+<a name="l9"><span class="ln">9    </span></a> 
+<a name="l10"><span class="ln">10   </span></a></span><span class="s2">class </span><span class="s1">mytest(unittest.TestCase): 
+<a name="l11"><span class="ln">11   </span></a>    </span><span class="s0">##初始化工作</span><span class="s1"> 
+<a name="l12"><span class="ln">12   </span></a>    </span><span class="s2">def </span><span class="s1">setUp(self): 
+<a name="l13"><span class="ln">13   </span></a>        </span><span class="s2">pass</span><span class="s1"> 
+<a name="l14"><span class="ln">14   </span></a> 
+<a name="l15"><span class="ln">15   </span></a>        </span><span class="s0"># 退出清理工作</span><span class="s1"> 
+<a name="l16"><span class="ln">16   </span></a> 
+<a name="l17"><span class="ln">17   </span></a>    </span><span class="s2">def </span><span class="s1">tearDown(self): 
+<a name="l18"><span class="ln">18   </span></a>        </span><span class="s2">pass</span><span class="s1"> 
+<a name="l19"><span class="ln">19   </span></a> 
+<a name="l20"><span class="ln">20   </span></a>        </span><span class="s0"># 具体的测试用例，一定要以test开头</span><span class="s1"> 
+<a name="l21"><span class="ln">21   </span></a> 
+<a name="l22"><span class="ln">22   </span></a>    </span><span class="s2">def </span><span class="s1">test_sum(self): 
+<a name="l23"><span class="ln">23   </span></a>        self.assertEqual(myclass.sum(</span><span class="s3">1</span><span class="s4">, </span><span class="s3">2</span><span class="s1">)</span><span class="s4">, </span><span class="s3">0</span><span class="s4">, </span><span class="s5">'test sum fail'</span><span class="s1">) 
+<a name="l24"><span class="ln">24   </span></a> 
+<a name="l25"><span class="ln">25   </span></a>    </span><span class="s2">def </span><span class="s1">test_sub(self): 
+<a name="l26"><span class="ln">26   </span></a>        self.assertEqual(myclass.sub(</span><span class="s3">2</span><span class="s4">, </span><span class="s3">1</span><span class="s1">)</span><span class="s4">, </span><span class="s3">1</span><span class="s4">, </span><span class="s5">'test sub fail'</span><span class="s1">) 
+<a name="l27"><span class="ln">27   </span></a> 
+<a name="l28"><span class="ln">28   </span></a> 
+<a name="l29"><span class="ln">29   </span></a></span><span class="s2">if </span><span class="s1">__name__ == </span><span class="s5">'__main__'</span><span class="s1">: 
+<a name="l30"><span class="ln">30   </span></a>    now = time.strftime(</span><span class="s5">&quot;%Y-%m-%d-%H_%M_%S&quot;</span><span class="s4">, </span><span class="s1">time.localtime(time.time())) 
+<a name="l31"><span class="ln">31   </span></a>    testunit = unittest.TestSuite() 
+<a name="l32"><span class="ln">32   </span></a>    testunit.addTest(mytest(</span><span class="s5">&quot;test_sum&quot;</span><span class="s1">)) 
+<a name="l33"><span class="ln">33   </span></a>    </span><span class="s0"># testunit.addTest(mytest(&quot;test_sub&quot;))</span><span class="s1"> 
+<a name="l34"><span class="ln">34   </span></a>    HtmlFile = </span><span class="s5">&quot;D:</span><span class="s4">\\</span><span class="s5">test</span><span class="s4">\\</span><span class="s5">&quot; </span><span class="s1">+ now + </span><span class="s5">&quot;HTMLtemplate.html&quot;</span><span class="s1"> 
+<a name="l35"><span class="ln">35   </span></a>    fp = open(HtmlFile</span><span class="s4">, </span><span class="s5">&quot;wb&quot;</span><span class="s1">) 
+<a name="l36"><span class="ln">36   </span></a>    runner = HTMLTestRunner.HTMLTestRunner(stream=fp</span><span class="s4">, </span><span class="s1">title=</span><span class="s5">u&quot;测试报告&quot;</span><span class="s4">, </span><span class="s1">description=</span><span class="s5">u&quot;用例测试情况&quot;</span><span class="s1">) 
+<a name="l37"><span class="ln">37   </span></a>    runner.run(testunit) 
+<a name="l38"><span class="ln">38   </span></a> 
+<a name="l39"><span class="ln">39   </span></a>    fp.close() 
+<a name="l40"><span class="ln">40   </span></a></span></pre>
+</body>
+</html>
