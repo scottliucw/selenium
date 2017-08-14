@@ -14,7 +14,7 @@ def test():
 
 def test1():
     url = "http://api.app1.snail.com:88/backend/platform/identity/login"
-    payload = {'cAccount': 'liucw002', 'cPassword': 's123456789'}
+    payload = {'cAccount': 'wntest560', 'cPassword': 'a123456'}
     r = requests.post(url=url, params=payload)
     print(r.url)
     print(r.json())
