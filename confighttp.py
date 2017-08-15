@@ -14,6 +14,7 @@ class ConfigHttp:
 
     def get(self, url, params):
         url = 'http://' + self.host + ':' + str(self.port) + url
+        params = eval(params)
         request = requests.get(url=url, params=params)
         try:
             response = request.json()
@@ -24,6 +25,7 @@ class ConfigHttp:
 
     def post(self, url, params):
         url = 'http://' + self.host + ':' + str(self.port) + url
+        params = eval(params)
         request = requests.post(url=url, params=params)
         try:
             response = request.json()

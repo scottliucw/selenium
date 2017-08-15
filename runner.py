@@ -30,7 +30,7 @@ class TestInterfaceCase(unittest.TestCase):
         header = {}
         self.config_http.set_header(header)
 
-        response = self.config_http.get(test_data.url, test_data.params)
+        response = self.config_http.get(url=test_data.url, params=test_data.params)
         if {} == response:
             test_data.result = 'Error'
             # error_num += 1
@@ -53,6 +53,8 @@ class TestInterfaceCase(unittest.TestCase):
             # error_num += 1
             return
         try:
+            print(response['msg'])
+            print(test_data.expected_result)
             self.assertEqual(response['msg'], test_data.expected_result, msg='exception')
             test_data.result = 'Pass'
             # success_num += 1
