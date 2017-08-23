@@ -103,17 +103,17 @@ class BasePage(object):
         self.driver.swipe(fromX, fromY, toX, toY, steps)
 
 
-dev = devices.Device().get_devices()
+# dev = devices.Device().get_devices()
 
-driver = webdriver.Remote('http://localhost:4723/wd/hub', dev[0])
-base_page = BasePage()
-base_page.set_driver(driver)
+# driver = webdriver.Remote('http://localhost:4723/wd/hub', dev[0])
+# base_page = BasePage()
+# base_page.set_driver(driver)
 
-sleep(5)
-driver.find_element_by_name(u"发现").click()
-driver.find_element_by_id('com.snailgame.cjg:id/tv_more').click()
-while driver.page_source.find('com.snailgame.cjg:id/loadMoreProgress') < 0:
-    base_page.swipe_up()
+# sleep(5)
+# driver.find_element_by_name(u"发现").click()
+# driver.find_element_by_id('com.snailgame.cjg:id/tv_more').click()
+# while driver.page_source.find('com.snailgame.cjg:id/loadMoreProgress') < 0:
+#    base_page.swipe_up()
 
 # while driver.page_source.find('com.snailgame.cjg:id/siv_title') < 0:
 #    base_page.swipe_down()
